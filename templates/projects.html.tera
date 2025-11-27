@@ -1,0 +1,39 @@
+{% extends "layout" %}
+{% block page %}
+
+</br>
+<p><a href="/">bwu.ai</a>/projects<p>
+<p><strong>Projects</strong></p>
+
+<hr>
+
+<div class="project-section">
+<h3>Sample Project: Autonomous Drone Navigation</h3>
+<p><strong>Duration:</strong> 2024 - Present</p>
+<p><strong>Technologies:</strong> Python, ROS2, Computer Vision, Deep Learning</p>
+<p style="margin-top: 10px;">
+Developed an autonomous navigation system for quadcopter drones capable of obstacle avoidance in GPS-denied environments. 
+The system uses onboard cameras and LiDAR sensors to create real-time 3D maps of the environment and plan collision-free 
+trajectories using model predictive control.
+</p>
+<p style="margin-top: 10px;"><strong>Key Achievements:</strong></p>
+<ul style="margin-top: 5px;">
+<li>Reduced collision rate by 85% compared to baseline methods</li>
+<li>Achieved real-time performance at 30 Hz on embedded hardware</li>
+<li>Successfully tested in indoor and outdoor environments</li>
+</ul>
+<p style="margin-top: 10px;">
+<a href="https://github.com/brianwu568">View on GitHub</a> | <a href="#">Demo Video</a>
+</p>
+</div>
+
+<hr>
+
+<p><a href="/">← Back to Home</a></p>
+
+</br>
+<p>&copy; Wu Holdings LLC -- <script>document.write(new Date().getFullYear())</script>. Template courtesy of Ian M. (Min Seok) Kim</p>
+
+<button onclick="toggle()">dark mode</button>
+
+{% endblock %}
