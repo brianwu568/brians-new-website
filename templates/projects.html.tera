@@ -1,0 +1,62 @@
+{% extends "layout" %}
+{% block page %}
+
+</br>
+<p><a href="/">bwu.ai</a>/projects<p>
+<p><strong>Projects</strong></p>
+
+<hr>
+
+<div class="project-section">
+<h3><a href="https://rascal.nianet.org/wp-content/uploads/2024-RASC-AL-Technical-Paper-MARA-Stanford-University-with-University-of-Waterloo.pdf">MARA: Modular self-Assembling Robotic Architecture</a></h3>
+<p><strong>Dec. 2023 - Jun. 2024</strong></p>
+<p style="margin-top: 10px;">
+Framework for a self-replicating and self-repairing robotic system designed for asteroid exploration. 
+Modules can be independently reconfigured, repaired, and repurposed, enabling autonomous self-assembly, module swapping, and dynamic robot 
+reconstruction for maximum system robustness and operational flexibility.
+</p>
+<p style="margin-top: 10px;">
+With in-situ resource utilization on an M-type Asteroid (16 Psyche), MARA can achieve potential launch weight reduction of ~1565 kg.
+</p>
+</div>
+
+<hr>
+
+<div class="project-section">
+<h3><a href="https://github.com/DroneFormer/DroneFormer/">DroneFormer</a></h3>
+<p><strong>Feb. 2023</strong></p>
+<p style="margin-top: 10px;">
+An open-source framework for controlling UAVs using natural language. Leverages Vision-Language-Action models to translate high-level 
+natural language commands into low-level drone control code, enabling long-horizon task specification through a no-code interface.
+</p>
+</div>
+
+<hr>
+
+<div class="project-section">
+<h3><a href="https://github.com/brianwu568/foundamental">Foundamental</a></h3>
+<p><strong>Aug. 2025</strong></p>
+<p style="margin-top: 10px;">
+Track your brand visibility and ranking across different Large Language Models. Monitor how your brand appears in LLM responses 
+compared to competitors, with multi-provider support (OpenAI, Ollama, etc.), sentiment analysis, and comprehensive analytics. Built with BAML for 
+type-safe, structured LLM interactions.
+</p>
+<p style="margin-top: 10px;">
+Open source alternative to <a href="https://www.tryprofound.com/">Profound</a>.
+</p>
+</div>
+
+<hr>
+
+<p><a href="/">← Back to Home</a></p>
+
+</br>
+<p>&copy; Wu Holdings LLC -- <script>document.write(new Date().getFullYear())</script>. Template courtesy of Ian M. (Min Seok) Kim</p>
+
+<button onclick="toggle()">dark mode</button>
+
+</br>
+</br>
+</br>
+
+{% endblock %}
