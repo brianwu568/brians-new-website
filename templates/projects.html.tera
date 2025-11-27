@@ -55,4 +55,8 @@ Open source alternative to <a href="https://www.tryprofound.com/">Profound</a>.
 
 <button onclick="toggle()">dark mode</button>
 
+</br>
+</br>
+</br>
+
 {% endblock %}
