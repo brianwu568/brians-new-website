@@ -2,7 +2,7 @@
 {% block page %}
 
 </br>
-<p><a href="/">bwu.ai</a>/writings<p>
+<p><a href="/">bwu.ai</a>/blog<p>
 <p><strong>Writings</strong></p>
 
 <hr>
@@ -10,6 +10,9 @@
 {% for blog in posts%}
 <div class="project-section">
 <h3><a href="{{blog.link}}">{{blog.title}}</a></h3>
+{% if blog.date %}
+<p><strong>{{blog.date}}</strong></p>
+{% endif %}
 {% if blog.preview %}
 <p style="margin-top: 10px;">
 {{blog.preview}}
