@@ -1,4 +1,5 @@
 # Putting Down my Paintbrush
+Date: 2021-10-15
 
 There is something so mesmerizing about the blankness of a Canvas. To those who aren’t as artistic-minded, it is merely what they perceive as: a rough white fabric, with utility as practical as any surrounding inanimate object. To the artistic-minded, it represents the starting line: a common point by which all creations of the universe began their existences. Yet to me, a blank canvas is my understanding of zero. It’s my understanding how my culture, my experiences, my values, and my life possess no meaning to many others in the world. It’s symbolic of an empty relationship: one in which two sides never exist to each other. There’s simply nothing to paint about: those who remain strangers to us in life will always share a blank canvas between us.
 
