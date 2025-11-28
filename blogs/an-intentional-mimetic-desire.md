@@ -1,4 +1,5 @@
 # An Intentional Mimetic Desire
+Date: 2023-12-22
 
 What does it take to make a world-class founder? Out of the people walking this Earth right now, how many people will be able to start a business worth tens of billions of dollars within the next decade? What are the traits of founders that can make it to this level?
 

@@ -1,4 +1,5 @@
 # The Bigger Picture
+Date: 2024-09-28
 
 There are movies in which you wish so desperately for there to be a happy ending, because that’s all it takes for the story to become complete and for the audience to achieve a soothing sense of satisfaction. Then there are other movies whose stories are most complete when they are incomplete. *Didi* (directed by Sean Wang) is one of those films.
 
