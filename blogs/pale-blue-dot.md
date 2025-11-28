@@ -1,4 +1,5 @@
 # A Contention for Why We Should Explore Space for the Greater Good of Humanity
+Date: 2021-06-18
 
 ## Introduction
 

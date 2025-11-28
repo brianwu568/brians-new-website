@@ -1,4 +1,5 @@
 # Public Companies, Private Companies, and Valuation: A Primer
+Date: 2021-06-15
 
 ## Introduction
 

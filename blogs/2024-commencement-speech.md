@@ -1,4 +1,5 @@
 # If I Were to Give a Speech at Graduation
+Date: 2024-06-24
 
 *I had originally submitted the following speech to the Baccalaureate Speaker Contest for Stanford's Graduating Class of 2024. While my speech was not ultimately selected, I wanted to publish it to offer some parting words, advice, and reflections to the people whom I had the fortune of spending the last 4 years with.*
 

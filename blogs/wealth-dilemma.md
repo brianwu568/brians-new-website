@@ -1,4 +1,5 @@
 # A Wealth Dilemma
+Date: 2023-08-20
 
 A question that I constantly ask myself is “How would you spend your wealth once you have accumulated it?”
 

@@ -1,4 +1,5 @@
 # The Drone Manifesto, Part II
+Date: 2024-10-30
 
 This document is a work-in-progress thesis representing the evolution of my thoughts on Drone design, manufacturing, and commercial applications.
 

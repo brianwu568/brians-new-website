@@ -1,4 +1,5 @@
 # Portfolio Construction: Laying the Foundation for the Future of Construction Tech
+Date: 2021-09-15
 
 ## Introduction
 

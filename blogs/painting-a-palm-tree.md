@@ -1,4 +1,5 @@
 # Painting a Palm Tree
+Date: 2023-04-04
 
 My day would have been perfect if it hadn’t been for the red stain on the front of my white long-sleeve that I had gotten when ketchup splashed out of a bowl and onto my shirt.
 

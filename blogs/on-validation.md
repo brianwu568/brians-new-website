@@ -1,4 +1,5 @@
 # On Validation
+Date: 2023-12-22
 
 _This is the product of some recent meditation I did in which I attempted to find an answer to the question of “Where do I get my dopamine?” Understanding how validation contributes to our dopamine rushes is essential to learning how to derive purpose from the improvement of ideas, rather than validating them._
 
