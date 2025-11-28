@@ -11,15 +11,81 @@ use std::io::{
     BufRead,
 };
 
-fn read_first_line(file_path: &str) -> io::Result<Option<String>> {
+fn read_first_lines(file_path: &str, num_lines: usize) -> io::Result<Vec<String>> {
     let file = File::open(file_path)?;
     let reader = io::BufReader::new(file);
-    let first_line = reader.lines().next();
+    let lines: Vec<String> = reader.lines()
+        .take(num_lines)
+        .filter_map(|line| line.ok())
+        .collect();
+    Ok(lines)
+}
 
-    match first_line {
-        Some(line) => Ok(Some(line.unwrap())),
-        None => Ok(None),
+fn extract_preview_text(lines: &[String]) -> String {
+    // Skip the title (first line with #) and empty lines
+    // Take the first non-empty paragraph as preview
+    let mut preview = String::new();
+    let mut skip_title = true;
+    
+    for line in lines {
+        let trimmed = line.trim();
+        
+        // Skip title line
+        if skip_title && trimmed.starts_with('#') {
+            skip_title = false;
+            continue;
+        }
+        
+        // Skip empty lines and section headers
+        if trimmed.is_empty() || trimmed.starts_with('#') {
+            if !preview.is_empty() {
+                break; // We found our preview, stop here
+            }
+            continue;
+        }
+        
+        // Add to preview
+        if !preview.is_empty() {
+            preview.push(' ');
+        }
+        preview.push_str(trimmed);
+        
+        // Limit preview length
+        if preview.len() > 200 {
+            // Use char_indices to find a safe boundary
+            let mut truncate_at = 200;
+            for (idx, _) in preview.char_indices() {
+                if idx > 200 {
+                    break;
+                }
+                truncate_at = idx;
+            }
+            
+            preview.truncate(truncate_at);
+            
+            // Find last space to avoid cutting mid-word
+            if let Some(last_space) = preview.rfind(' ') {
+                preview.truncate(last_space);
+            }
+            preview.push_str("...");
+            break;
+        }
     }
+    
+    preview
+}
+
+fn extract_date_from_filename(filename: &str) -> Option<String> {
+    // Try to extract year from filename (e.g., "2021-year-in-review.md")
+    if filename.starts_with(char::is_numeric) {
+        if let Some(year_end) = filename.find('-') {
+            let year = &filename[..year_end];
+            if year.len() == 4 {
+                return Some(year.to_string());
+            }
+        }
+    }
+    None
 }
 
 
@@ -45,6 +111,7 @@ struct Preview {
     title: String,
     preview: String,
     link: String,
+    date: String,
 }
 
 
@@ -58,13 +125,22 @@ pub fn blogs_fn() -> Template {
             title: "".to_string(),
             preview: "".to_string(),
             link: path.replace("blogs/", "blog/read/").replace(".md", ""),
+            date: "".to_string(),
         };
-        match read_first_line(&path) {
-            Ok(Some(first_line)) => {
-                story.title = first_line.replace("# ", "");
+        
+        // Extract filename for date detection
+        if let Some(filename) = Path::new(&path).file_name() {
+            if let Some(filename_str) = filename.to_str() {
+                story.date = extract_date_from_filename(filename_str).unwrap_or_default();
             }
-            Ok(None) => {
-                println!("The file is empty.");
+        }
+        
+        match read_first_lines(&path, 10) {
+            Ok(lines) => {
+                if let Some(first_line) = lines.first() {
+                    story.title = first_line.replace("# ", "");
+                }
+                story.preview = extract_preview_text(&lines);
             }
             Err(err) => {
                 eprintln!("Error reading the file: {:?}", err);
