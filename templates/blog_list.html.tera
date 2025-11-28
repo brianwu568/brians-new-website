@@ -10,7 +10,6 @@
 {% for blog in posts%}
 <div class="project-section">
 <h3><a href="{{blog.link}}">{{blog.title}}</a></h3>
-<p><strong>{{blog.date}}</strong></p>
 {% if blog.preview %}
 <p style="margin-top: 10px;">
 {{blog.preview}}
