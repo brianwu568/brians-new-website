@@ -2,14 +2,34 @@
 {% block page %}
 
 </br>
-</br>
-<h1><em>Writings</em></h1>
-</br>
+<p><a href="/">bwu.ai</a>/writings<p>
+<p><strong>Writings</strong></p>
+
+<hr>
 
 {% for blog in posts%}
-<a style="padding-bottom:20px;" href="{{blog.link}}">
-    <h5>{{blog.order}}. {{blog.title}}</h5>
-</a>
+<div class="project-section">
+<h3><a href="{{blog.link}}">{{blog.title}}</a></h3>
+<p><strong>{{blog.date}}</strong></p>
+{% if blog.preview %}
+<p style="margin-top: 10px;">
+{{blog.preview}}
+</p>
+{% endif %}
+</div>
+
+<hr>
 {% endfor %}
+
+<p><a href="/">← Back to Home</a></p>
+
+</br>
+<p>&copy; Wu Holdings LLC -- <script>document.write(new Date().getFullYear())</script>. Template courtesy of Ian M. (Min Seok) Kim</p>
+
+<button onclick="toggle()">dark mode</button>
+
+</br>
+</br>
+</br>
 
 {% endblock %}
