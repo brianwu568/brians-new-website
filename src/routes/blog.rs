@@ -21,8 +21,22 @@ fn read_first_lines(file_path: &str, num_lines: usize) -> io::Result<Vec<String>
     Ok(lines)
 }
 
+fn extract_date_from_content(lines: &[String]) -> Option<String> {
+    // Look for a line that starts with "Date:" in the first few lines
+    for line in lines.iter().take(5) {
+        let trimmed = line.trim();
+        if trimmed.to_lowercase().starts_with("date:") {
+            let date = trimmed[5..].trim().to_string();
+            if !date.is_empty() {
+                return Some(date);
+            }
+        }
+    }
+    None
+}
+
 fn extract_preview_text(lines: &[String]) -> String {
-    // Skip the title (first line with #) and empty lines
+    // Skip the title (first line with #), date field, and empty lines
     // Take the first non-empty paragraph as preview
     let mut preview = String::new();
     let mut skip_title = true;
@@ -33,6 +47,11 @@ fn extract_preview_text(lines: &[String]) -> String {
         // Skip title line
         if skip_title && trimmed.starts_with('#') {
             skip_title = false;
+            continue;
+        }
+        
+        // Skip date field
+        if trimmed.to_lowercase().starts_with("date:") {
             continue;
         }
         
@@ -119,27 +138,30 @@ struct Preview {
 pub fn blogs_fn() -> Template {
     let mut context = HashMap::new();
     let mut stories = Vec::<Preview>::new();
-    for (i, path) in get_file_paths(Path::new("blogs")).iter().enumerate(){
+    
+    for path in get_file_paths(Path::new("blogs")).iter() {
         let mut story = Preview {
-            order: i + 1,
+            order: 0, // Will be set after sorting
             title: "".to_string(),
             preview: "".to_string(),
             link: path.replace("blogs/", "blog/read/").replace(".md", ""),
             date: "".to_string(),
         };
         
-        // Extract filename for date detection
-        if let Some(filename) = Path::new(&path).file_name() {
-            if let Some(filename_str) = filename.to_str() {
-                story.date = extract_date_from_filename(filename_str).unwrap_or_default();
-            }
-        }
-        
-        match read_first_lines(&path, 10) {
+        match read_first_lines(&path, 15) {
             Ok(lines) => {
                 if let Some(first_line) = lines.first() {
                     story.title = first_line.replace("# ", "");
                 }
+                story.date = extract_date_from_content(&lines).unwrap_or_else(|| {
+                    // Fallback to filename-based date extraction
+                    if let Some(filename) = Path::new(&path).file_name() {
+                        if let Some(filename_str) = filename.to_str() {
+                            return extract_date_from_filename(filename_str).unwrap_or_default();
+                        }
+                    }
+                    String::new()
+                });
                 story.preview = extract_preview_text(&lines);
             }
             Err(err) => {
@@ -147,6 +169,15 @@ pub fn blogs_fn() -> Template {
             }
         }
         stories.push(story);
+    }
+    
+    // Sort stories by date (most recent first)
+    // Dates should be in YYYY-MM-DD format for proper string sorting
+    stories.sort_by(|a, b| b.date.cmp(&a.date));
+    
+    // Update order numbers after sorting
+    for (i, story) in stories.iter_mut().enumerate() {
+        story.order = i + 1;
     }
 
     context.insert("posts", stories);
