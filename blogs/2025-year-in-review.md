@@ -17,7 +17,7 @@ Looking back on the last 12 months, that’s been more or less the defining patt
 
 If you’re reading this, you probably know that I love to explore new places, and the flight log for 2025 obviously doesn’t lie:
 
-![Flight log](attachment:91fc3a7a-12cb-4be8-96a9-86416901e65a:IMG_8373.jpg)
+![Flight log](/static/media/2025-flight-log.jpg)
 
 This year marked a plethora of exploring new cities, both domestic and abroad, for work and for pleasure. Places that I had once only read about on Wikipedia or explored via Instagram Reels became real, textured, and alive. I no longer saw America as simply East Coast vs. West Coast, Japan as simply Tokyo, but rather came to appreciate the small bits and pieces that lie in between. What surprised me the most, however, was not the places themselves, but how much they were defined by people.
 
@@ -74,3 +74,4 @@ If you know of anyone working on these problems, please introduce me to them; I�
 I don’t know exactly where this path leads, but for the first time in a while, I trust the direction. If this year taught me anything, it’s that serendipity isn’t accidental. It’s something you earn by choosing deeply, showing up fully, saying no when it matters, and creating space for the right people and problems to find you.
 
 That has made the world feel smaller in the best possible way.
+
